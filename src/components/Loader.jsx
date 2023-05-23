@@ -54,7 +54,7 @@ const Loader = () => {
 
   return ReactDOM.createPortal(
     <>
-      <CircularProgressWithLabel value={progress} />;
+      <CircularProgressWithLabel value={progress} />
     </>,
     document.getElementById("loader")
   );
