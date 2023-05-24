@@ -14,7 +14,11 @@ import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
 import { validateEmail } from "../../../utils/EmailValidation";
 import { loginUser } from "../../../services/AuthService";
-import { SET_LOGIN, SET_NAME } from "../../../redux/features/auth/AuthSlice";
+import {
+  SET_LOGIN,
+  SET_NAME,
+  SET_USER,
+} from "../../../redux/features/auth/AuthSlice";
 import Loader from "../../../components/Loader";
 
 const initialState = {
@@ -58,6 +62,7 @@ const Login = () => {
       console.log(data);
       await dispatch(SET_LOGIN(true));
       await dispatch(SET_NAME(data.username));
+      await dispatch(SET_USER(data));
       navigate.push("/dashboard/dashboard");
       setIsloading(false);
     } catch (error) {
